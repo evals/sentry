@@ -86,9 +86,11 @@ class SentryServiceProvider extends ServiceProvider {
 				case 'whirlpool':
 					return new WhirlpoolHasher;
 					break;
+				
+				default :
+					return new NativeHasher;
+					break;
 			}
-
-			throw new \InvalidArgumentException("Invalid hasher [$hasher] chosen for Sentry.");
 		});
 	}
 
