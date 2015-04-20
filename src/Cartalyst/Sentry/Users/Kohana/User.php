@@ -733,6 +733,17 @@ class User extends \ORM implements UserInterface {
 		$this->last_login = new DateTime;
 		$this->save();
 	}
+	
+	/**
+	 * Records a logout for the user.
+	 *
+	 * @return void
+	 */
+	public function recordLogout()
+	{
+		$this->persist_code = null;
+		$this->save();
+	}
 
 	/**
 	 * Check string against hashed string.
