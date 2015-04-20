@@ -844,6 +844,17 @@ class User extends Model implements UserInterface {
 		$this->last_login = $this->freshTimestamp();
 		$this->save();
 	}
+	
+	/**
+	 * Records a logout for the user.
+	 * 
+	 * @return void
+	 */
+	public function recordLogout()
+	{
+		$this->persist_code = null;
+		$this->save();
+	}
 
 	/**
 	 * Returns the relationship between users and groups.
