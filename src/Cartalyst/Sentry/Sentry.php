@@ -356,6 +356,7 @@ class Sentry {
 	 */
 	public function logout()
 	{
+		$this->user->recordLogout();
 		$this->user = null;
 
 		$this->session->forget();
